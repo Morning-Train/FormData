@@ -126,8 +126,8 @@ module.exports = function () {
 					if (!elm.name || elm.disabled) continue
 
 					if (elm.type === 'file')
-						for (let file of elm.files)
-							this.append(elm.name, file)
+						for (let i = 0; i < elm.files.length; i++)
+							this.append(elm.name, elm.files[i])
 					else if (elm.type === 'select-multiple' || elm.type === 'select-one')
 						for (let opt of arrayFrom(elm.options))
 							opt.selected && this.append(elm.name, opt.value)
